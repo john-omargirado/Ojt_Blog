@@ -134,236 +134,451 @@ export default function WeeklyUpdatesSection() {
   }, []);
 
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-screen bg-gradient-to-tl from-gray-900 via-purple-900 to-blue-900 text-white px-6 py-12 font-inter overflow-hidden">
-      {/* Custom CSS for text selection and animated background */}
-      <style jsx>{`
-        ::selection {
-          background-color: #a78bfa; /* A lighter purple */
-          color: #1a202c; /* Dark text for contrast */
-        }
-        ::-moz-selection {
-          background-color: #a78bfa;
-          color: #1a202c;
-        }
-        @keyframes subtle-gradient-shift {
-          0% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-          100% {
-            background-position: 0% 50%;
-          }
-        }
-        .animated-background-gradient {
-          background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-          background-size: 400% 400%;
-          animation: subtle-gradient-shift 15s ease infinite;
-        }
-        /* Radial gradient mask for a spotlight effect - consistent with Hero Section */
-        .radial-gradient-mask {
-          background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.5) 75%);
-          pointer-events: none; /* Allows clicks to pass through */
-        }
-      `}</style>
-
-      {/* Animated Background Element */}
-      <div className="absolute inset-0 z-0 animated-background-gradient opacity-20"></div>
-      {/* Background Overlay for subtle texture and depth */}
-      <div className="absolute inset-0 bg-black opacity-30 z-0"></div>
-      {/* Radial gradient mask for consistent background effect */}
-      <div className="absolute inset-0 z-0 radial-gradient-mask"></div>
-
-      {/* Section Title and Description */}
-      <motion.h1
-        className="relative z-10 text-5xl md:text-6xl font-extrabold mb-4 text-center tracking-tight drop-shadow-lg"
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        Weekly Progress
-      </motion.h1>
-      <motion.p
-        className="relative z-10 text-lg md:text-xl mb-12 text-center max-w-2xl opacity-90 leading-relaxed drop-shadow-md"
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-      >
-        Dive into the **key learnings and accomplishments** from each week of my On-the-Job Training at BU ICTO.
-      </motion.p>
-
-      {/* Grid of Update Cards */}
-      <div className="relative z-10 w-full max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
-        {elements.map((item, idx) => (
-          <motion.div
-            key={idx}
-            className="bg-white/95 text-gray-800 p-6 rounded-xl shadow-2xl cursor-pointer hover:shadow-purple-500/40 transition-all duration-300 ease-in-out border border-transparent hover:border-purple-400 transform-gpu"
-            onClick={() => handleOpenModal(item)}
-            initial={{ opacity: 0, y: 60 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: idx * 0.08, duration: 0.6, ease: 'easeOut' }}
-            whileHover={{ scale: 1.03, z: 10 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <div className="flex items-center gap-4 mb-4">
-              {item.icon && (
-                <img
-                  src={item.icon}
-                  alt={item.title}
-                  className="w-10 h-10 object-contain drop-shadow-sm"
-                  onError={(e) => {
-                    e.currentTarget.src = `https://placehold.co/40x40/cccccc/333333?text=Icon`;
-                    e.currentTarget.onerror = null;
-                  }}
-                />
-              )}
-              <h2 className="text-2xl font-bold text-gray-900">{item.title}</h2>
-            </div>
-            <p className="text-purple-700 text-md font-semibold mb-1">{item.date}</p>
-            <p className="text-gray-600 text-base mb-4 leading-snug">{item.subtitle}</p>
-
-            {/* Display truncated content on the card */}
-            <p className="text-gray-700 text-sm mt-2 leading-relaxed">
-              {truncateText(item.content, 150)} {/* Truncate content for card display */}
-            </p>
-            <span className="text-purple-600 hover:text-purple-800 text-sm font-semibold mt-2 block">
-              Read More &rarr;
-            </span>
-          </motion.div>
-        ))}
+    <div id="learnings-section" className="relative min-h-screen bg-gradient-to-br from-slate-950 via-purple-950 to-indigo-950 text-white overflow-hidden">
+      {/* Enhanced Background Effects */}
+      <div className="absolute inset-0">
+        {/* Animated Grid Pattern */}
+        <div className="absolute inset-0 opacity-20" 
+             style={{
+               backgroundImage: `
+                 linear-gradient(rgba(168, 85, 247, 0.1) 1px, transparent 1px),
+                 linear-gradient(90deg, rgba(168, 85, 247, 0.1) 1px, transparent 1px)
+               `,
+               backgroundSize: '50px 50px'
+             }}
+        />
+        
+        {/* Floating Orbs */}
+        <motion.div 
+          className="absolute top-1/4 left-1/6 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [0.3, 0.6, 0.3],
+            x: [0, 50, 0],
+            y: [0, -30, 0],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div 
+          className="absolute bottom-1/4 right-1/6 w-80 h-80 bg-indigo-500/20 rounded-full blur-3xl"
+          animate={{
+            scale: [1.2, 1, 1.2],
+            opacity: [0.4, 0.7, 0.4],
+            x: [0, -40, 0],
+            y: [0, 20, 0],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 3
+          }}
+        />
+        
+        {/* Additional accent orbs */}
+        <motion.div 
+          className="absolute top-1/2 left-1/2 w-60 h-60 bg-blue-500/15 rounded-full blur-2xl"
+          animate={{
+            scale: [1, 1.4, 1],
+            opacity: [0.2, 0.5, 0.2],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1
+          }}
+        />
       </div>
 
-      {/* Modal Overlay */}
-      <AnimatePresence>
-        {selected && (
+      {/* Main Container */}
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+        
+        {/* Enhanced Header Section */}
+        <motion.div
+          className="text-center mb-16 lg:mb-20"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          {/* Badge */}
           <motion.div
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-purple-600/30 to-indigo-600/30 border border-purple-400/30 backdrop-blur-sm mb-6"
           >
-            <motion.div
-              className="bg-white rounded-2xl p-8 max-w-2xl w-full text-gray-800 relative shadow-2xl border border-gray-200"
-              initial={{ scale: 0.7, opacity: 0, y: 50 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.7, opacity: 0, y: 50 }}
-              transition={{ type: 'spring', stiffness: 250, damping: 25 }}
-            >
-              <button
-                className="absolute top-4 right-5 text-gray-500 hover:text-gray-800 transition-colors p-1 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-500"
-                onClick={handleCloseModal}
-                aria-label="Close modal"
-              >
-                {/* Close SVG Icon */}
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-              <div className="flex items-center gap-4 mb-4">
-                {selected.icon && (
-                  <img
-                    src={selected.icon}
-                    alt={selected.title}
-                    className="w-12 h-12 object-contain drop-shadow-sm"
-                    onError={(e) => {
-                      e.currentTarget.src = `https://placehold.co/50x50/cccccc/333333?text=Icon`;
-                      e.currentTarget.onerror = null;
-                    }}
-                  />
-                )}
-                <h2 className="text-3xl font-bold text-gray-900">{selected.title}</h2>
-              </div>
-              <p className="text-md text-gray-600 mb-6">
-                <span className="font-semibold text-purple-700">{selected.date}</span> • {selected.subtitle}
-              </p>
+            <span className="text-sm font-semibold text-purple-200">📚 Learning Journey</span>
+          </motion.div>
 
-              {/* Image Carousel */}
-              {selected.images && selected.images.length > 0 && (
-                <div className="relative mb-6">
-                  <AnimatePresence mode="wait" initial={false}>
+          {/* Main Title */}
+          <motion.h1
+            className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6"
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            <span className="bg-gradient-to-r from-white via-purple-200 to-indigo-200 bg-clip-text text-transparent">
+              Weekly Progress
+            </span>
+            <br />
+            <span className="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent text-4xl sm:text-5xl lg:text-6xl">
+              & Achievements
+            </span>
+          </motion.h1>
+          
+          {/* Subtitle */}
+          <motion.p
+            className="text-lg sm:text-xl lg:text-2xl text-gray-300 leading-relaxed max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            Explore the transformative journey through each week of my OJT experience, 
+            <span className="text-purple-300 font-medium"> showcasing key learnings, technical growth, and real-world applications</span>.
+          </motion.p>
+
+          {/* Progress Indicator */}
+          <motion.div
+            className="mt-8 flex justify-center items-center space-x-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            <div className="flex items-center space-x-2 bg-white/5 backdrop-blur-sm rounded-full px-4 py-2 border border-white/10">
+              <span className="text-sm text-gray-400">Weeks Completed:</span>
+              <span className="text-lg font-bold text-white">{elements.length}</span>
+            </div>
+          </motion.div>
+        </motion.div>
+
+        {/* Enhanced Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
+          {elements.map((item, idx) => (
+            <motion.div
+              key={idx}
+              className="group relative"
+              initial={{ opacity: 0, y: 60 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: idx * 0.1, duration: 0.8, ease: 'easeOut' }}
+            >
+              {/* Card Container */}
+              <div
+                className="relative bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 lg:p-8 cursor-pointer transition-all duration-500 hover:bg-white/10 hover:border-purple-400/30 hover:shadow-2xl hover:shadow-purple-500/20 transform hover:-translate-y-2"
+                onClick={() => handleOpenModal(item)}
+              >
+                {/* Week Badge */}
+                <div className="absolute -top-3 -right-3 bg-gradient-to-r from-purple-500 to-indigo-500 text-white text-sm font-bold px-3 py-1 rounded-full shadow-lg">
+                  {item.date}
+                </div>
+
+                {/* Card Header */}
+                <div className="flex items-start space-x-4 mb-6">
+                  <motion.div
+                    className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-purple-400/20 to-indigo-400/20 rounded-xl flex items-center justify-center border border-purple-300/30"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {item.icon && (
+                      <img
+                        src={item.icon}
+                        alt={item.title}
+                        className="w-8 h-8 object-contain"
+                        onError={(e) => {
+                          e.currentTarget.src = `https://placehold.co/32x32/8B5CF6/FFFFFF?text=📚`;
+                          e.currentTarget.onerror = null;
+                        }}
+                      />
+                    )}
+                  </motion.div>
+                  
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-xl lg:text-2xl font-bold text-white mb-2 leading-tight group-hover:text-purple-200 transition-colors duration-300">
+                      {item.title}
+                    </h3>
+                    <p className="text-purple-300 text-sm font-medium bg-purple-500/10 px-3 py-1 rounded-full inline-block">
+                      {item.subtitle}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Content Preview */}
+                <p className="text-gray-300 text-sm lg:text-base leading-relaxed mb-6 line-clamp-3">
+                  {truncateText(item.content, 150)}
+                </p>
+
+                {/* Image Preview */}
+                {item.images && item.images.length > 0 && (
+                  <div className="relative mb-6 overflow-hidden rounded-xl">
                     <motion.img
-                      key={currentImageIndex} // Key prop for AnimatePresence to detect changes
-                      src={selected.images[currentImageIndex]}
-                      alt={`${selected.title} - Image ${currentImageIndex + 1}`}
-                      className="rounded-lg w-full h-64 md:h-80 object-cover shadow-md border border-gray-100"
-                      initial={{ opacity: 0, x: 50 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -50 }}
-                      transition={{ duration: 0.5 }}
+                      src={item.images[0]}
+                      alt={item.title}
+                      className="w-full h-32 lg:h-40 object-cover transition-transform duration-500 group-hover:scale-110"
                       onError={(e) => {
-                        e.currentTarget.src = `https://placehold.co/600x400/cccccc/333333?text=Image+Not+Found`;
+                        e.currentTarget.src = `https://placehold.co/400x200/374151/9CA3AF?text=Preview`;
                         e.currentTarget.onerror = null;
                       }}
                     />
-                  </AnimatePresence>
-
-                  {selected.images.length > 1 && (
-                    <>
-                      {/* Left Arrow */}
-                      <button
-                        className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/75 text-white p-2 rounded-full transition-colors duration-300 z-10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-75"
-                        onClick={handlePrevImage}
-                        aria-label="Previous image"
-                      >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                        </svg>
-                      </button>
-                      {/* Right Arrow */}
-                      <button
-                        className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/75 text-white p-2 rounded-full transition-colors duration-300 z-10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-75"
-                        onClick={handleNextImage}
-                        aria-label="Next image"
-                      >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </button>
-
-                      {/* Image Indicators and Play/Pause Button */}
-                      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center space-x-2 bg-black/30 rounded-full px-3 py-1">
-                        {/* Play/Pause Button */}
-                        <button
-                          onClick={toggleAutoPlay}
-                          className="p-1 rounded-full text-white hover:bg-white/20 transition-colors focus:outline-none focus:ring-2 focus:ring-white"
-                          aria-label={autoPlay ? "Pause autoplay" : "Play autoplay"}
-                        >
-                          {autoPlay ? (
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                              <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd" />
-                            </svg>
-                          ) : (
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
-                            </svg>
-                          )}
-                        </button>
-                        {/* Image Indicators */}
-                        {selected.images.map((_, idx) => (
-                          <button
-                            key={idx}
-                            className={`h-2 w-2 rounded-full transition-all duration-300 ${
-                              currentImageIndex === idx ? 'bg-white scale-125' : 'bg-gray-400 opacity-70'
-                            }`}
-                            onClick={() => {
-                              setAutoPlay(false); // Stop autoplay when indicator is clicked
-                              setCurrentImageIndex(idx);
-                            }}
-                            aria-label={`Go to image ${idx + 1}`}
-                          />
-                        ))}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    
+                    {/* Image Count Badge */}
+                    {item.images.length > 1 && (
+                      <div className="absolute top-3 right-3 bg-black/70 backdrop-blur-sm text-white text-xs px-2 py-1 rounded-full">
+                        +{item.images.length - 1} more
                       </div>
-                    </>
-                  )}
+                    )}
+                  </div>
+                )}
+
+                {/* Call to Action */}
+                <motion.div
+                  className="flex items-center justify-between"
+                  whileHover={{ x: 5 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <span className="text-purple-300 hover:text-purple-200 font-semibold text-sm transition-colors duration-200">
+                    Explore Details
+                  </span>
+                  <motion.div
+                    className="w-8 h-8 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full flex items-center justify-center shadow-lg"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </motion.div>
+                </motion.div>
+
+                {/* Hover Glow Effect */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-500/0 via-purple-500/5 to-indigo-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Enhanced Modal Overlay */}
+      <AnimatePresence>
+        {selected && (
+          <motion.div
+            className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 z-50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={handleCloseModal}
+          >
+            <motion.div
+              className="bg-gradient-to-br from-white via-gray-50 to-gray-100 rounded-3xl p-8 lg:p-10 max-w-4xl w-full max-h-[90vh] overflow-y-auto text-gray-800 relative shadow-2xl border border-gray-200"
+              initial={{ scale: 0.7, opacity: 0, y: 100 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.7, opacity: 0, y: 100 }}
+              transition={{ type: 'spring', stiffness: 200, damping: 25 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close Button */}
+              <motion.button
+                className="absolute top-6 right-6 w-10 h-10 bg-gray-100 hover:bg-gray-200 text-gray-600 hover:text-gray-800 rounded-full flex items-center justify-center transition-all duration-200 z-10 shadow-lg"
+                onClick={handleCloseModal}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                aria-label="Close modal"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </motion.button>
+
+              {/* Modal Header */}
+              <div className="mb-8">
+                <div className="flex items-start space-x-6 mb-4">
+                  <motion.div
+                    className="flex-shrink-0 w-20 h-20 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-2xl flex items-center justify-center shadow-lg"
+                    initial={{ scale: 0, rotate: -180 }}
+                    animate={{ scale: 1, rotate: 0 }}
+                    transition={{ delay: 0.3, duration: 0.5, type: "spring" }}
+                  >
+                    {selected.icon && (
+                      <img
+                        src={selected.icon}
+                        alt={selected.title}
+                        className="w-10 h-10 object-contain"
+                        onError={(e) => {
+                          e.currentTarget.src = `https://placehold.co/40x40/FFFFFF/8B5CF6?text=📚`;
+                          e.currentTarget.onerror = null;
+                        }}
+                      />
+                    )}
+                  </motion.div>
+                  
+                  <div className="flex-1">
+                    <motion.h2
+                      className="text-3xl lg:text-4xl font-bold text-gray-900 mb-2"
+                      initial={{ opacity: 0, x: -30 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.4, duration: 0.5 }}
+                    >
+                      {selected.title}
+                    </motion.h2>
+                    <motion.div
+                      className="flex flex-wrap items-center gap-4"
+                      initial={{ opacity: 0, x: -30 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.5, duration: 0.5 }}
+                    >
+                      <span className="px-4 py-2 bg-gradient-to-r from-purple-500 to-indigo-500 text-white text-sm font-semibold rounded-full shadow-md">
+                        {selected.date}
+                      </span>
+                      <span className="text-gray-600 text-lg font-medium">
+                        {selected.subtitle}
+                      </span>
+                    </motion.div>
+                  </div>
                 </div>
+              </div>
+
+              {/* Enhanced Image Carousel */}
+              {selected.images && selected.images.length > 0 && (
+                <motion.div
+                  className="relative mb-8 rounded-2xl overflow-hidden shadow-2xl"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6, duration: 0.5 }}
+                >
+                  <div className="relative h-80 lg:h-96">
+                    <AnimatePresence mode="wait" initial={false}>
+                      <motion.img
+                        key={currentImageIndex}
+                        src={selected.images[currentImageIndex]}
+                        alt={`${selected.title} - Image ${currentImageIndex + 1}`}
+                        className="absolute inset-0 w-full h-full object-cover"
+                        initial={{ opacity: 0, scale: 1.1 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.95 }}
+                        transition={{ duration: 0.5 }}
+                        onError={(e) => {
+                          e.currentTarget.src = `https://placehold.co/800x400/E5E7EB/6B7280?text=Image+${currentImageIndex + 1}`;
+                          e.currentTarget.onerror = null;
+                        }}
+                      />
+                    </AnimatePresence>
+
+                    {/* Gradient Overlays */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-black/10" />
+
+                    {selected.images.length > 1 && (
+                      <>
+                        {/* Navigation Arrows */}
+                        <motion.button
+                          className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white rounded-full flex items-center justify-center transition-all duration-300 shadow-lg"
+                          onClick={handlePrevImage}
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.95 }}
+                          aria-label="Previous image"
+                        >
+                          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                          </svg>
+                        </motion.button>
+                        
+                        <motion.button
+                          className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white rounded-full flex items-center justify-center transition-all duration-300 shadow-lg"
+                          onClick={handleNextImage}
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.95 }}
+                          aria-label="Next image"
+                        >
+                          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </motion.button>
+
+                        {/* Enhanced Controls */}
+                        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center space-x-4 bg-black/30 backdrop-blur-sm rounded-full px-6 py-3">
+                          {/* Auto-play Toggle */}
+                          <motion.button
+                            onClick={toggleAutoPlay}
+                            className="w-8 h-8 text-white hover:text-purple-300 transition-colors flex items-center justify-center"
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.95 }}
+                            aria-label={autoPlay ? "Pause autoplay" : "Play autoplay"}
+                          >
+                            {autoPlay ? (
+                              <svg className="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd" />
+                              </svg>
+                            ) : (
+                              <svg className="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+                              </svg>
+                            )}
+                          </motion.button>
+
+                          {/* Image Indicators */}
+                          <div className="flex space-x-2">
+                            {selected.images.map((_, idx) => (
+                              <motion.button
+                                key={idx}
+                                className={`transition-all duration-300 ${
+                                  currentImageIndex === idx 
+                                    ? 'w-8 h-3 bg-white rounded-full' 
+                                    : 'w-3 h-3 bg-white/50 hover:bg-white/75 rounded-full'
+                                }`}
+                                onClick={() => {
+                                  setAutoPlay(false);
+                                  setCurrentImageIndex(idx);
+                                }}
+                                whileHover={{ scale: 1.2 }}
+                                whileTap={{ scale: 0.9 }}
+                                aria-label={`Go to image ${idx + 1}`}
+                              >
+                                {currentImageIndex === idx && (
+                                  <motion.div
+                                    layoutId="activeImageIndicator"
+                                    className="w-full h-full bg-gradient-to-r from-purple-400 to-indigo-400 rounded-full"
+                                  />
+                                )}
+                              </motion.button>
+                            ))}
+                          </div>
+
+                          {/* Image Counter */}
+                          <div className="text-white text-sm font-medium">
+                            {currentImageIndex + 1} / {selected.images.length}
+                          </div>
+                        </div>
+                      </>
+                    )}
+                  </div>
+                </motion.div>
               )}
 
-              <h3 className="font-semibold text-xl text-gray-700 mb-3">Weekly Activities & Accomplishments:</h3>
-              {/* Display content as a single paragraph */}
-              <p className="text-base text-gray-800 leading-relaxed">
-                {selected.content}
-              </p>
+              {/* Content Section */}
+              <motion.div
+                className="space-y-6"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7, duration: 0.5 }}
+              >
+                <div className="flex items-center space-x-3 mb-4">
+                  <div className="w-2 h-8 bg-gradient-to-b from-purple-500 to-indigo-500 rounded-full"></div>
+                  <h3 className="text-2xl font-bold text-gray-800">Weekly Activities & Accomplishments</h3>
+                </div>
+                
+                <div className="prose prose-lg max-w-none">
+                  <p className="text-gray-700 leading-relaxed text-lg">
+                    {selected.content}
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Background Decoration */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-purple-100/50 to-transparent rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-indigo-100/50 to-transparent rounded-full blur-2xl pointer-events-none" />
             </motion.div>
           </motion.div>
         )}

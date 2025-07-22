@@ -39,7 +39,7 @@ export default function NavbarDemo() {
           {/* Desktop Social Media Buttons - REIMPLEMENTED */}
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="https://github.com/your-github" // Replace with your GitHub URL
+              href="https://github.com/john-omargirado" // Replace with your GitHub URL
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-4 py-2 rounded-full border border-purple-500 bg-purple-500 text-white text-sm font-medium hover:bg-purple-600 hover:border-purple-600 transition-all duration-200 shadow-md whitespace-nowrap"
@@ -48,7 +48,7 @@ export default function NavbarDemo() {
               Github
             </a>
             <a
-              href="https://facebook.com/your-facebook" // Replace with your Facebook URL
+              href="https://www.facebook.com/bunoy.omar/" // Replace with your Facebook URL
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-4 py-2 rounded-full border border-blue-600 bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 hover:border-blue-700 transition-all duration-200 shadow-md whitespace-nowrap"

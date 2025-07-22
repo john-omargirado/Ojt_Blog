@@ -11,41 +11,49 @@ export default function TimelineSection() {
       subtitle: 'Project Briefing and Mockup Task',
       date: 'Week 1',
       content: 'Our first week at BU ICTO began with an orientation where we were introduced to the office’s goals, workflows, and the significance of maintaining standardization across BU web systems. After the briefing, we were assigned our initial task—to refactor the UI/UX of the Bicol University Faculty Center website. We started by evaluating its current layout and were instructed to create a mockup design that followed BU’s official web design standards. This marked the beginning of our involvement in real-world web development practices aligned with institutional guidelines.',
-      icon: FaLaptopCode, // Icon for setup/environment
-      type: 'work'
+      icon: FaLaptopCode,
+      type: 'work',
+      skills: ['UI/UX Analysis', 'Mockup Creation', 'Standard Compliance'],
+      achievements: ['Completed initial mockup', 'Understood institutional design standards', 'Started real-world project']
     },
     {
       title: 'Getting Familiar with Laravel',
       subtitle: 'Understanding the Framework',
       date: 'Week 2',
       content: 'In our second week, we began exploring Laravel to understand its fundamental concepts and structure. We followed a series of YouTube tutorials to get hands-on experience with Laravel’s MVC architecture, routing, controllers, and blade templates. This initial exposure helped us build confidence in navigating Laravel and laid the groundwork for future backend development tasks.',
-      icon: FaPaintBrush, // Icon for UI/UX design
+      icon: FaPaintBrush,
       type: 'work',
-      gradient: 'from-purple-600 to-pink-600'
+      gradient: 'from-purple-600 to-pink-600',
+      skills: ['Laravel Basics', 'MVC Architecture', 'Blade Templates'],
+      achievements: ['Built first Laravel routes', 'Explored MVC pattern', 'Started using Laravel for development']
     },
     {
       title: 'Tailwind CSS Mastery',
       subtitle: 'Responsive Design and Utility Classes',
       date: 'Week 3',
       content: 'The third week centered around design implementation using Tailwind CSS. We applied what we learned by styling the template given by our mentor, aligning it with the official BUSIS (Bicol University Student Information System) design guidelines. This week helped solidify our understanding of utility-first CSS and responsive design, ensuring our layouts remained consistent across different devices.',
-      icon: FaCode, // Icon for frontend coding
+      icon: FaCode,
       type: 'work',
-      gradient: 'from-green-600 to-emerald-600'
+      gradient: 'from-green-600 to-emerald-600',
+      skills: ['Tailwind CSS', 'Responsive Design', 'Utility-First Styling'],
+      achievements: ['Styled templates with Tailwind', 'Aligned with BUSIS guidelines', 'Created responsive layouts']
     },
     {
       title: 'Livewire and Laravel Integration',
       subtitle: 'Dynamic Interfaces with Livewire',
       date: 'Week 4',
       content: 'In the fourth week, we delved into Livewire, a full-stack framework for Laravel that enables building reactive interfaces without writing JavaScript. We explored how Livewire integrates seamlessly with Laravel and practiced building dynamic components, enhancing user interactivity on the web pages. This helped us simplify front-end behavior while staying within the Laravel ecosystem.',
-      icon: FaGitAlt, // Icon for Git/version control
+      icon: FaGitAlt,
       type: 'work',
-      gradient: 'from-cyan-600 to-blue-600'
+      gradient: 'from-cyan-600 to-blue-600',
+      skills: ['Livewire Components', 'Laravel Integration', 'Reactive Interfaces'],
+      achievements: ['Created dynamic Livewire components', 'Improved page interactivity', 'Reduced JS usage through Livewire']
     },
     {
-      title: 'Frontend Deployment Strategies',
-      subtitle: 'Launching React Applications',
+      title: 'Frontend Refinement & Quality Assurance',
+      subtitle: 'Checking of Output',
       date: 'Week 5',
-      content: 'Week five was dedicated to refining the overall user interface of our project. We revisited the design and made several enhancements to improve the visual appeal and user experience. By applying better UI/UX principles such as spacing, alignment, color consistency, and component usability, we achieved a cleaner and more intuitive layout that aligned with modern web standards.',
+      content: 'Week five was dedicated to refining the overall user interface of our project. We revisited the design and made several enhancements to improve the visual appeal and user experience. By applying better UI/UX principles such as spacing, alignment, color consistency, and component usability, we achieved a cleaner and more intuitive layout that aligned with modern web standards. After the week ended, we showed our output to Sir Davie for evaluation and feedback. He provided minor comments to fix certain design aspects of the website and recommended functionalities to implement, such as adding a feature for downloading grades.',
       icon: FaServer,
       type: 'work',
       skills: ['UI/UX Enhancement', 'Modern Web Standards', 'Visual Design'],

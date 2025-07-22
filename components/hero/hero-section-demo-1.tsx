@@ -4,25 +4,23 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { TypingEffect } from "@/components/ui/typing-effect";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
+import { describe } from "node:test";
 
 const cards = [
   {
     title: "BU ICTO Internship",
-    image:
-      "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    desc: "Worked on real-world projects involving system maintenance, documentation, and web development, gaining hands-on experience in a professional IT environment.",
+    image: 'images/Week1_Day1.jpg',
+    desc: "Embarked on a transformative journey at Bicol University ICT Office, diving into the world of web development and IT operations.",
   },
   {
-    title: "Web System Debugging",
-    image:
-      "https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    desc: "Successfully identified and resolved critical bugs in Laravel and WordPress platforms, ensuring smooth operation for various Bicol University offices.",
+    title: "BU ICTO Internship",
+    image: 'images/Slide2.jpg',
+    desc: "Embarked on a transformative journey at Bicol University ICT Office, diving into the world of web development and IT operations.",
   },
   {
-    title: "Documentation Tasks",
-    image:
-      "https://images.unsplash.com/photo-1457305237443-44c3d0a5d45b?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    desc: "Created comprehensive user manuals and detailed technical documentation for internal systems, improving usability and maintainability for staff.",
+    title: "BU ICTO Internship",
+    image: 'images/Slide3.jpeg',
+    desc: "Embarked on a transformative journey at Bicol University ICT Office, diving into the world of web development and IT operations.",
   },
 ];
 
@@ -262,7 +260,7 @@ export default function HeroSectionOne() {
                         
                         {/* Week Badge */}
                         <div className="absolute -top-3 -right-3 bg-gradient-to-r from-purple-500 to-indigo-500 text-white text-sm font-bold px-3 py-1 rounded-full shadow-lg">
-                          Week {index + 1}
+                          Slide {index + 1}
                         </div>
 
                         {/* Content */}
@@ -274,8 +272,8 @@ export default function HeroSectionOne() {
                             {card.title}
                           </CardItem>
                           
-                          <CardItem translateZ="80" className="w-full mb-6 flex-grow">
-                            <div className="relative overflow-hidden rounded-xl h-48">
+                          <CardItem translateZ="80" className="w-full flex-grow">
+                            <div className="relative overflow-hidden rounded-xl h-64">
                               <img
                                 src={card.image}
                                 alt={card.title}

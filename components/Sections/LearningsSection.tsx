@@ -54,14 +54,15 @@ export default function WeeklyUpdatesSection() {
       ],
     },
     {
-      title: 'Frontend Deployment Strategies',
-      subtitle: 'Launching React Applications',
+      title: 'Frontend Refinement & Quality Assurance',
+      subtitle: 'Checking of Output',
       date: 'Week 5',
-      content: 'Week five was dedicated to refining the overall user interface of our project. We revisited the design and made several enhancements to improve the visual appeal and user experience. By applying better UI/UX principles such as spacing, alignment, color consistency, and component usability, we achieved a cleaner and more intuitive layout that aligned with modern web standards.',
+      content: 'Week five was dedicated to refining the overall user interface of our project. We revisited the design and made several enhancements to improve the visual appeal and user experience. By applying better UI/UX principles such as spacing, alignment, color consistency, and component usability, we achieved a cleaner and more intuitive layout that aligned with modern web standards. After the week ended, we showed our output to Sir Davie for evaluation and feedback. He provided minor comments to fix certain design aspects of the website and recommended functionalities to implement, such as adding a feature for downloading grades.',
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg',
       images: [
-        'https://images.unsplash.com/photo-1549692520-acc666928e0c?auto=format&fit=crop&q=80&w=1932&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        'images/WEEK5.jpg',
+        'images/WEEK5(1).jpg',
+        'images/week5(2).png',
       ],
     },
     {

@@ -58,7 +58,7 @@ export default function WeeklyUpdatesSection() {
       subtitle: 'Checking of Output',
       date: 'Week 5',
       content: 'Week five was dedicated to refining the overall user interface of our project. We revisited the design and made several enhancements to improve the visual appeal and user experience. By applying better UI/UX principles such as spacing, alignment, color consistency, and component usability, we achieved a cleaner and more intuitive layout that aligned with modern web standards. After the week ended, we showed our output to Sir Davie for evaluation and feedback. He provided minor comments to fix certain design aspects of the website and recommended functionalities to implement, such as adding a feature for downloading grades.',
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg',
+      icon: 'https://img.icons8.com/?size=100&id=hfRkaHc1TrwI&format=png&color=000000',
       images: [
         'images/WEEK5.jpg',
         'images/WEEK5(1).jpg',
@@ -66,16 +66,18 @@ export default function WeeklyUpdatesSection() {
       ],
     },
     {
-      title: 'Advanced React Concepts',
-      subtitle: 'Hooks, Context API, and Optimization',
-      date: 'Week 6',
-      content: 'Explored advanced React concepts, including in-depth usage of `useState`, `useEffect`, and `useContext` for robust state management. Learned to create custom hooks for reusable logic and delved into performance optimization techniques to build highly efficient and scalable React applications.',
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg',
-      images: [
-        'https://images.unsplash.com/photo-1581472723648-5c7429141042?auto=format&fit=crop&q=80&w=1932&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        'https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      ],
-    },
+    title: 'System Enhancements & Project Presentation',
+    subtitle: 'Final Refinements and Presentation',
+    date: 'Week 6',
+    content: 'Implemented a print-friendly format for the report of grades module and optimized the system’s night mode for better performance and visual clarity. Added a dedicated Faculty Portal link in the navigation bar to improve accessibility for faculty users. Presented the final version of the project to the team, showcasing the completed features and improvements. This final presentation marked the culmination of the development phase and the handover for evaluation and deployment.',
+    icon: 'https://img.icons8.com/?size=100&id=DHOunydDcKfC&format=png&color=000000',
+    images: [
+      'images/WEEK6.jpg',
+      'images/WEEK6(1).jpg',
+      'images/WEEK6(2).jpg',
+      'images/WEEK6(3).jpg',
+    ],
+    }
   ];
 
   const [selected, setSelected] = useState<ElementType | null>(null);

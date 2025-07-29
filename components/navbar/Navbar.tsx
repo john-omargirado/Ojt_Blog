@@ -7,13 +7,12 @@ import {
   NavItems,
   MobileNav,
   NavbarLogo,
-  // Removed NavbarButton as we'll custom implement it
   MobileNavHeader,
   MobileNavToggle,
   MobileNavMenu,
-} from "@/components/ui/resizable-navbar"; // Assuming these are well-designed base components
+} from "@/components/ui/resizable-navbar";
 import { useState } from "react";
-import Image from "next/image"; // Import Next.js Image component for optimization
+import Image from "next/image";
 import React from "react";
 
 
@@ -21,7 +20,7 @@ export default function NavbarDemo() {
   const navItems = [
     { name: "Home", link: "#home" },
     { name: "Learnings", link: "#learnings" },
-    { name: "Experience", link: "#experience" }, // Renamed "Contact" to "Experience" for consistency with timeline
+    { name: "Experience", link: "#experience" }, 
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -30,16 +29,11 @@ export default function NavbarDemo() {
     <div className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md dark:bg-gray-900/80 transition-colors duration-300 shadow-sm">
       <Navbar>
         <NavBody>
-          {/* Custom NavbarLogo for better branding */}
           <NavbarLogo />
-
-          {/* Desktop Navigation Items */}
           <NavItems items={navItems} className="text-gray-600 dark:text-gray-300 font-medium text-lg" />
-
-          {/* Desktop Social Media Buttons - REIMPLEMENTED */}
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="https://github.com/john-omargirado" // Replace with your GitHub URL
+              href="https://github.com/john-omargirado"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-4 py-2 rounded-full border border-purple-500 bg-purple-500 text-white text-sm font-medium hover:bg-purple-600 hover:border-purple-600 transition-all duration-200 shadow-md whitespace-nowrap"
@@ -48,7 +42,7 @@ export default function NavbarDemo() {
               Github
             </a>
             <a
-              href="https://www.facebook.com/bunoy.omar/" // Replace with your Facebook URL
+              href="https://www.facebook.com/bunoy.omar/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-4 py-2 rounded-full border border-blue-600 bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 hover:border-blue-700 transition-all duration-200 shadow-md whitespace-nowrap"
@@ -89,7 +83,7 @@ export default function NavbarDemo() {
             {/* Mobile Social Media Buttons - REIMPLEMENTED */}
             <div className="flex w-full flex-col gap-4 px-4 mt-6">
               <a
-                href="https://github.com" // Replace with your GitHub URL
+                href="https://github.com/john-omargirado"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 px-4 py-3 rounded-full border border-purple-500 bg-purple-500 text-white text-lg font-medium hover:bg-purple-600 hover:border-purple-600 transition-all duration-200 shadow-md"
@@ -98,7 +92,7 @@ export default function NavbarDemo() {
                 Github
               </a>
               <a
-                href="https://facebook.com" // Replace with your Facebook URL
+                href="https://www.facebook.com/bunoy.omar/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 px-4 py-3 rounded-full border border-blue-600 bg-blue-600 text-white text-lg font-medium hover:bg-blue-700 hover:border-blue-700 transition-all duration-200 shadow-md"

@@ -60,15 +60,15 @@ export default function TimelineSection() {
       achievements: ['UI refinement', 'Better UX', 'Modern standards compliance'],
       gradient: 'from-red-600 to-pink-600'
     },
-    {
-      title: 'Deployment & Performance Optimization',
-      subtitle: 'Preparing for Production & Final Review',
+      {
+      title: 'System Enhancements & Final Presentation',
+      subtitle: 'Print Formatting, Optimization, and Review',
       date: 'Week 6',
-      content: 'Explored deployment strategies for web applications, including preparing the project for production environments. Conducted performance optimization, bug fixing, and a final review of the Faculty Center website, ensuring it met all requirements before handover.',
+      content: 'Implemented a print-friendly layout for the report of grades and optimized the night mode for improved user experience and performance. A Faculty Portal link was also added to the navigation bar to improve access for faculty users. Presented the final version of the project to the team, highlighting the completed features and refinements. Final bug fixes and performance checks were completed to ensure the Faculty Center system was ready for evaluation and deployment.',
       icon: FaCloudUploadAlt,
       type: 'work',
-      skills: ['Deployment Strategies', 'Performance Optimization', 'Production Readiness'],
-      achievements: ['Production deployment', 'Performance optimization', 'Final project review'],
+      skills: ['UI Enhancement', 'Performance Optimization', 'Project Presentation', 'Deployment Preparation', 'Navigation Integration'],
+      achievements: ['Print format integration', 'Night mode optimization', 'Faculty Portal navigation update', 'Final presentation and project review'],
       gradient: 'from-orange-600 to-red-600'
     }
   ];

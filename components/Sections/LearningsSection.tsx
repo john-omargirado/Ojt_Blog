@@ -61,7 +61,7 @@ export default function WeeklyUpdatesSection() {
       icon: 'https://img.icons8.com/?size=100&id=hfRkaHc1TrwI&format=png&color=000000',
       images: [
         'images/WEEK5.jpg',
-        'images/WEEK5(1).jpg',
+        'images/WEEK5.jpg',
         'images/week5(2).png',
       ],
     },
